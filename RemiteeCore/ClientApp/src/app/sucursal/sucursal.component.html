@@ -1,0 +1,41 @@
+<h1>Sucursal</h1>
+
+<p *ngIf="!redes"><em>Cargando...</em></p>
+
+
+<form #formSucursal="ngForm" (ngSubmit)="onSubmit()">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="sucursal.id" />
+  <table>
+    <tbody>
+      <tr>
+        <td>Red:</td>
+        <td>
+          <select name="PayerId" #payerId="ngModel" [(ngModel)]="sucursal.payerId">
+            <option *ngFor="let item of redes" value="{{item.id}}">{{item.name}}</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Codigo:</td>
+        <td>
+          <input type="text" name="code" #code="ngModel" [(ngModel)]="sucursal.code" required />
+        </td>
+      </tr>
+      <tr>
+        <td>Nombre:</td>
+        <td>
+          <input type="text" name="name" #name="ngModel" [(ngModel)]="sucursal.name" required />
+        </td>
+      </tr>
+      <tr>
+        <td>Direccion:</td>
+        <td>
+          <input type="text" name="formattedAddress" #formattedAddress="ngModel" [(ngModel)]="sucursal.formattedAddress" required />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <input type="submit" value="Aceptar" />
+  <button (click)="cancelar()">Cancelar</button>
+</form>

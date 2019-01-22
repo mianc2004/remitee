@@ -1,0 +1,26 @@
+<h1>Sucursales</h1>
+
+<p *ngIf="!list"><em>Cargando...</em></p>
+
+<button (click)="nueva()">Nueva</button>
+
+<table class='table' *ngIf="list">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Code</th>
+      <th>Name</th>
+      <th>FormattedAddress</th>
+      <th>Payer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of list">
+      <td><button (click)="eliminar(item.id)">Borrar</button> <button (click)="modificar(item.id)">Modificar</button></td>
+      <td>{{ item.code }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.formattedAddress }}</td>
+      <td>{{ item.payer }}</td>
+    </tr>
+  </tbody>
+</table>
